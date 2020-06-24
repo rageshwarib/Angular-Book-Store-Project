@@ -1,0 +1,36 @@
+.mat-card{
+  width: 650px;;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: rgb(184, 184, 184) 1px  solid; 
+  transition: none !important;
+  box-shadow: none !important;
+  font: 15px Arial, sans-serif;
+}
+.card-img{
+  margin-top: 3%;
+  max-height: 130px;
+}
+.card-data{
+  margin-top: -23%;
+  margin-left: 130px;
+}
+.card-btn{
+  margin-left: 500px;
+  color: white;
+  background-color: rgb(45, 125, 206);
+}
+
+.btn-icon{
+  border-radius: 100%;
+  border-color: white;;
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.rem-btn{
+  margin-left: 300px;
+  color: white;
+  background-color: rgb(170, 46, 46);
+}

@@ -1,0 +1,15 @@
+.mat-card {
+  width: 650px;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5%;
+  transition: none !important;
+  box-shadow: none !important;
+  border: rgb(184, 184, 184) 1px  solid; 
+  font: 15px Arial, sans-serif;
+}
+.card-img {
+  max-height: 130px;
+}

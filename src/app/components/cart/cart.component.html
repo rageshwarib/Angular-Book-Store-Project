@@ -1,0 +1,27 @@
+
+<div>
+  <mat-card class="mat-card">
+    <p>My Cart</p>
+    <div *ngFor="let cartBooks of books">
+    <img class="card-img"
+    [src]="getImageUrl(cartBooks)"/>
+        <div class="card-data">
+          <p>{{cartBooks.title}}</p>
+          <p>by {{cartBooks.author}}</p>
+          <p>{{cartBooks.price}}</p>
+          <div (click)="add()">ADD</div>
+          <span><mat-icon (click)="addItem()" >add_circle_outline</mat-icon></span>      
+          <span class="btn-icon">{{ amount }}</span>
+          <span><mat-icon class="btn-icon"(click)="removeItem()">remove_circle_outline</mat-icon></span>
+          <button class="rem-btn" mat-button (click)="removeFromCart(cartBooks)">Remove</button>       
+        </div>
+          <mat-divider></mat-divider>
+    </div>
+      <br>
+      <button class="card-btn" *ngIf="this.isButtonVisible"mat-button (click)="isClicked = true" (click)="this.isButtonVisible = false">
+        PLACE ORDER
+      </button>
+  </mat-card>
+</div>
+<br>
+<app-form *ngIf="isClicked"></app-form>

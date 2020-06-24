@@ -1,0 +1,54 @@
+
+.card-style{
+  display: flex;
+   justify-content: center;
+   align-items: center;
+     width: 880px;
+    margin: auto;
+    height: 500px;
+    
+   }
+   .form-style{
+      background-color: #F6EAEA;
+      height: 400px;
+      width: 380px;
+      margin-top: 10%;
+   }
+   .header-img-style {
+    border-radius: 100%;
+    width: 45%;
+    margin-left: 45%;
+    margin-top: -28%;
+    background-color: brown;
+  }
+  .signup-name {
+    margin-top: 63px;
+    margin-left: -111%;
+  }
+  .field-style {
+    width: 370px;
+  }
+  .radio-btn{
+      margin-left: 15px;
+     color: brown;
+  }
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+   // opacity: 0.5 !important;     /*click effect color change*/
+    background-color: brown !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: brown !important;   /*inner circle color change*/
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+   border-color:brown !important; /*outer ring color change*/
+}
+.signup-btn {
+   background-color: brown;
+    color: white;
+   width: 150px;
+  }
+  .link-style{
+    color: brown;
+  }

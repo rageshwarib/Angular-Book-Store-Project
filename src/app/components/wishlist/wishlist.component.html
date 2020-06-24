@@ -1,0 +1,21 @@
+<div>
+  <mat-card class="mat-card">
+    <p>My WishList</p>
+    <div *ngFor="let wishlistBooks of books">
+      <img class="card-img"
+        src="https://books.google.com/books/content?id=GHt_uwEACAAJ&printsec=frontcover&img=1&zoom=5" />
+      <div class="card-data">
+        <p>{{ wishlistBooks.title }}</p>
+        <p>by {{ wishlistBooks.author }}</p>
+        <p>{{ wishlistBooks.price }}</p>
+        <button class="rem-btn" (click)="removeFromWishlist(wishlistBooks)" mat-button>REMOVE</button>
+      </div>
+      <div>
+        <a routerLink="/cart"><button class="card-btn" mat-button>Add to Cart</button></a>
+      </div>
+      <mat-divider></mat-divider>
+    </div>
+    <br />
+    
+  </mat-card>
+</div>

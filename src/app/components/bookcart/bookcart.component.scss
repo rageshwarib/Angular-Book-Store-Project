@@ -1,0 +1,78 @@
+.mat-card{
+  transition: none !important;
+  box-shadow: none !important;
+  border: rgb(184, 184, 184) 1px  solid; 
+}
+
+.image-style {
+  width: 40%;
+  height: 120px;
+  margin-left: 30%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.des-style{
+  font-weight: bold;
+  font-size: 18px;
+
+}
+.title-style {
+  font-size: 90%;
+  line-height: 16px;
+  white-space: nowrap; 
+  width: 180px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  }
+
+.author-style {
+  font-size: 50%;
+  margin-left: 2%;
+  margin-top: -4%;
+  color: grey;
+}
+.price-style {
+  font-size: 75%;
+  margin-left: 2%;
+  font-weight: bold;
+  margin-top: -2%;
+}
+.bs-img-bg {
+  background-color: rgb(245, 247, 247);
+  margin: -0px -15px -8px -15px;
+  margin-top: -16px;
+}
+
+.addtobag-btn {
+   background-color: brown;
+   border: unset;
+   color: white;
+   height: 30px;
+  
+ }
+ .wishlist-btn {
+  margin-left: 21px;
+  height: 30px;
+ }
+  .green {
+  background-color: green;
+ }
+
+.tooltip-wrap {
+  background-color: rgb(245, 247, 247);
+  margin: -0px -15px -8px -15px;
+  margin-top: -16px;
+}
+.tooltip-wrap .tooltip-content {
+  display: none;
+  position:absolute;
+  bottom: 45px;
+  width: 350px;
+  left: -155px;
+  right: 0;
+  background-color: #fff;
+
+}
+.tooltip-wrap:hover .tooltip-content {
+ display: block;
+}
