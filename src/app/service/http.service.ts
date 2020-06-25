@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -10,7 +10,7 @@ export class HttpService {
   bookUrl = environment.baseUrl;
   cartUrl = environment.cartUrl;
   wishlistUrl = environment.wishlistUrl;
-
+header = {headers: new HttpHeaders().set('token', localStorage.getItem('token'))}
   constructor(private http: HttpClient) { }
 
   getBooks(): Observable<string[]>{
@@ -26,13 +26,13 @@ export class HttpService {
     return this.http.get<string[]>(this.bookUrl + '/sort/newest-arrival');
   }
   addToCart(cartObj): any{
-    return this.http.put(this.cartUrl + '/add-to-cart', cartObj, {responseType: 'text'});
+    return this.http.post(this.cartUrl + '/add-to-cart', cartObj, this.header);
+  }
+  getBooksFromCart(): any{
+    return this.http.get<string[]>(this.cartUrl + '/getall', this.header);
   }
   removeFromcart(cartObj): any{
-    return this.http.put(this.cartUrl + '/remove-from-cart', cartObj, {responseType: 'text'});
-  }
-  getBooksFromCart(userId): any{
-    return this.http.get<string[]>(this.cartUrl + '/getall/' + userId);
+    return this.http.post(this.cartUrl + '/remove-from-cart', cartObj, this.header);
   }
   addToWishlist(wishlistObj): any{
     return this.http.post(this.wishlistUrl + '/add-to-wishlist', wishlistObj, {responseType: 'text'});

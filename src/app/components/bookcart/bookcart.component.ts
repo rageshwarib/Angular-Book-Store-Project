@@ -47,7 +47,7 @@ export class BookcartComponent implements OnInit {
   }
 
   addToCart(){
-  var cartObj = new Cart(this.userId, this.book.id, this.bookQuantity);
+  var cartObj = new Cart(this.book.id, this.bookQuantity);
    this.httpService.addToCart(cartObj).subscribe(data => {});
    console.log('Book added to cart');
    console.log(cartObj);

@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, SimpleChanges, AfterViewInit, ViewChi
 import { Cart } from 'src/app/model/cart';
 import { HttpService } from 'src/app/service/http.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { HttpHeaders } from '@angular/common/http';
+import { CartOrderSummaryService } from 'src/app/service/cart-order-summary.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,21 +17,15 @@ export class CartComponent implements OnInit{
  public isClicked: boolean;
  public isButtonVisible = true;
  public amount: number;
- books : any;
- userId = 1;
+ books: any;
  imageUrl: string;
- constructor( public httpService: HttpService, public sanitizer: DomSanitizer) { }
+ constructor( public cartOrderSummaryService: CartOrderSummaryService, public httpService: HttpService, public sanitizer: DomSanitizer) { }
 
  ngOnInit(): void {
    this.isClicked = false;
-   this.getBooksFromCart(this.userId);
+   this.getBooksFromCart();
   // this.getImageUrl(book);
  }
-//  ngAfterViewInit() {
-//   // this.book = this.Books.bookArray;
-//   // this.message = this.child.message
-
-// }
  add() {
    this.amount = 1;
  }
@@ -59,19 +55,36 @@ export class CartComponent implements OnInit{
     return this.sanitizer.bypassSecurityTrustUrl(firstReplacement.replace("'", ''));
   }
 }
- getBooksFromCart(userId){
-   this.httpService.getBooksFromCart(userId).subscribe(data => {
-     this.books = data;
-     this.userId = userId;
-     console.log('Data in get card', data);
-   });
-   console.log(userId);
- }
-  removeFromCart(book){
-    var cartObj = new Cart(this.userId, book.id, 1);
-    this.httpService.removeFromcart(cartObj).subscribe(data => {
-     this.getBooksFromCart(this.userId);
-    });
-    console.log('Book removed from cart');
-  }
+getBooksFromCart(){
+  this.httpService.getBooksFromCart().subscribe(data => {
+    this.books = data;
+   this.cartOrderSummaryService.getBooksFromCart(this.books);
+    console.log('Data  get in card', data);
+  });
+}
+
+removeFromCart(book){
+  var cartObj = new Cart(book.id, 1);
+  console.log(cartObj);
+  this.httpService.removeFromcart(cartObj).subscribe(data => {
+  this.getBooksFromCart();
+  });
+  console.log('Book removed from cart');
+}
+
+//  getBooksFromCart(){
+//    this.httpService.getBooksFromCart().subscribe(data => {
+//      this.books = data;
+//     // this.userId = userId;
+//      console.log('Data in get card', data);
+//    });
+//    //console.log(this.header);
+//  }
+//   removeFromCart(book){
+//     var cartObj = new Cart(book.id, 1);
+//     this.httpService.removeFromcart(cartObj).subscribe(data => {
+//      this.getBooksFromCart();
+//     });
+//     console.log('Book removed from cart');
+//   }
 }

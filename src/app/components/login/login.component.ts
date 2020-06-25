@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
   }
   loginUser(){
     this.authService.loginUser(this.signInObj).subscribe(data => {
+      console.log(data);
     });
+    console.log('Login User');
   }
 
 }

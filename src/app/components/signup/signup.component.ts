@@ -34,6 +34,8 @@ public signUpObj = new SignUp();
   }
 registerUser(){
   this.authService.registerUser(this.signUpObj).subscribe(data => {
+    console.log(data);
   });
+  console.log("Register successfully");
 }
 }

@@ -1,16 +1,18 @@
 <div>
   <mat-card class="mat-card">
-    <div>
-      <p>Order Summary</p>
-      <img
-        class="card-img"
-        src="https://books.google.com/books/content?id=GHt_uwEACAAJ&printsec=frontcover&img=1&zoom=5"
-      />
+    <p class="card-style">Order Summary({{ cartBooks?.length }})</p>
+    <div *ngFor="let summaryBook of cartBooks">
+      <img class="card-img" [src]="getImageUrl( summaryBook )" />  
+      <div class="card-data">
+        <p class="title-style">{{ summaryBook.title }}</p>
+        <p class="author-style">by {{ summaryBook.author }}</p>
+        <p class="price-style">Rs.{{ summaryBook.price }}</p>  
+      </div>
     </div>
-    <div class="card-data">
-      <p>Landmark</p>
-      <p>by Landmark</p>
-      <p>Rs.1234</p>
+    <br />
+    <mat-divider></mat-divider>
+    <br />
+    <div class="btn-style">
       <a routerLink="/success"><button class="card-btn" mat-button>CHECKOUT</button></a>
     </div>
   </mat-card>

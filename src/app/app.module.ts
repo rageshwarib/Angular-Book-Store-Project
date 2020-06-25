@@ -22,6 +22,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
 import {NgxPaginationModule} from 'ngx-pagination';
 import { RouterModule } from '@angular/router';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     LoginComponent,
     SignupComponent,
     ForgetPasswordComponent,
-    WishlistComponent
+    WishlistComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

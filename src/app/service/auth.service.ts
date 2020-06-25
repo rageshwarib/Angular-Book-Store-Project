@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 
@@ -7,26 +7,20 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
+  header = {headers: new HttpHeaders().set('token', localStorage.getItem('emailToken'))}
 authUrl = environment.authUrl;
   constructor(private http: HttpClient) { }
 
-  // login(credentials): Observable<any> {
-  //   return this.http.post(AUTH_API + 'signin', {
-  //     username: credentials.username,
-  //     password: credentials.password
-  //   }, httpOptions);
-
-  // register(user): Observable<any> {
-  //   return this.http.post(AUTH_API + 'signup', {
-  //     username: user.username,
-  //     email: user.email,
-  //     password: user.password
-  //   }, httpOptions);
-  // }
   registerUser(signUpObj): any{
     return this.http.post(this.authUrl + '/signup', signUpObj, {responseType: 'text'});
   }
   loginUser(signInObj): any{
     return this.http.post(this.authUrl + '/signin', signInObj, {responseType: 'text'});
+  }
+  forgotPassword(email): any {
+    return this.http.get(this.authUrl + '/forgot-password/' + email, {responseType: 'text'});
+  }
+  resetPassword(resetPasswordObj): any {
+    return this.http.post(this.authUrl + '/reset-password', resetPasswordObj, this.header);
   }
 }

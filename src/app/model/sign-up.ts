@@ -3,4 +3,5 @@ export class SignUp {
     email;
     role;
     password;
+    mobileNumber;
 }

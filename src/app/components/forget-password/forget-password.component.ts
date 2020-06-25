@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/service/auth.service';
+import { ForgotPassword } from 'src/app/model/forgot-password';
 // Error when invalid control is dirty, touched.
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -14,8 +16,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class ForgetPasswordComponent implements OnInit {
   EMAIL_PATTERN = /^[a-zA-Z0-9]{1,}([.\_\+\-]?[a-zA-Z0-9]{1,})?[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]?[a-z]{2})?$/;
-
-  constructor() { }
+public forgotPasswordObj = new ForgotPassword();
+  constructor(public authService: AuthService) { }
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.pattern(this.EMAIL_PATTERN),
@@ -24,5 +26,11 @@ export class ForgetPasswordComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  forgotPassword(email){
+    console.log(email);
+    this.authService.forgotPassword(email).subscribe(data => {
+      console.log(data);
+    });
+    console.log('Token is sent on your Mail');
+  }
 }
