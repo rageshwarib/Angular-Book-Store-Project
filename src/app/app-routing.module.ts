@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GetBookDetailsComponent } from './components/get-book-details/get-book-details.component';
 import { CartComponent } from './components/cart/cart.component';
-import { FormComponent } from './components/form/form.component';
 import { OrderSummeryComponent } from './components/order-summery/order-summery.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
 import { BookcartComponent } from './components/bookcart/bookcart.component';

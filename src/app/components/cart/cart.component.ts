@@ -19,6 +19,7 @@ export class CartComponent implements OnInit{
  public amount: number;
  books: any;
  imageUrl: string;
+ isExist;
  constructor( public cartOrderSummaryService: CartOrderSummaryService, public httpService: HttpService, public sanitizer: DomSanitizer) { }
 
  ngOnInit(): void {
@@ -70,6 +71,12 @@ removeFromCart(book){
   this.getBooksFromCart();
   });
   console.log('Book removed from cart');
+}
+isCustomerExist(){
+  this.httpService.isCustomerExist().subscribe(data =>{
+    console.log(data);
+  });
+  
 }
 
 //  getBooksFromCart(){

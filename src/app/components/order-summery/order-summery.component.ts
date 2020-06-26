@@ -12,7 +12,7 @@ export class OrderSummeryComponent implements OnInit {
   imageUrl: string;
 
    constructor(public cartOrderSummaryService: CartOrderSummaryService, public sanitizer: DomSanitizer) { }
- ngOnInit(): void {
+  ngOnInit(): void {
    this.cartOrderSummaryService.orderSummaryBooks.subscribe(data => {
      this.cartBooks = data;
    });

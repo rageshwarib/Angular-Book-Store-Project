@@ -11,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { FormComponent } from './components/form/form.component';
 import { OrderSummeryComponent } from './components/order-summery/order-summery.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
 
@@ -23,6 +22,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { RouterModule } from '@angular/router';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 
 
 @NgModule({
@@ -32,7 +32,6 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     BookcartComponent,
     GetBookDetailsComponent,
     CartComponent,
-    FormComponent,
     OrderSummeryComponent,
     PlaceOrderComponent,
     BookcartComponent,
@@ -40,7 +39,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     SignupComponent,
     ForgetPasswordComponent,
     WishlistComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    CustomerDetailsComponent
   ],
   imports: [
     BrowserModule,

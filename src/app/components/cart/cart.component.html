@@ -18,10 +18,12 @@
           <mat-divider></mat-divider>
     </div>
       <br>
-      <button class="card-btn" *ngIf="this.isButtonVisible"mat-button (click)="isClicked = true" (click)="this.isButtonVisible = false">
+      <button class="card-btn" *ngIf="this.isButtonVisible"mat-button (click)="isClicked = true" 
+      (click)="this.isButtonVisible = false" ng-if="isCustomerExist() == true">
         PLACE ORDER
       </button>
   </mat-card>
 </div>
 <br>
-<app-form *ngIf="isClicked"></app-form>
+<app-customer-details *ngIf="isClicked"  ></app-customer-details>
+<!-- *ngIf="isClicked" -->

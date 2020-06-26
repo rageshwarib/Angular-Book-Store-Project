@@ -7,7 +7,8 @@ export const environment = {
   baseUrl: 'http://localhost:8080/book-store',
   cartUrl: 'http://localhost:8080/home/cart',
   wishlistUrl: 'http://localhost:8080/home/wishlist',
-  authUrl: 'http://localhost:8080/api/auth'
+  authUrl: 'http://localhost:8080/api/auth',
+  customerUrl: 'http://localhost:8080/customer-details'
 };
 
 /*

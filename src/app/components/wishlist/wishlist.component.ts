@@ -9,26 +9,21 @@ import { Wishlist } from 'src/app/model/wishlist';
 })
 export class WishlistComponent implements OnInit {
   books = [];
-  userId = 5;
- // public cartObj = new Wishlist(1, 101);
   constructor( public httpService: HttpService ) { }
 
   ngOnInit(): void {
-    this.getBooksFromWishlist(this.userId);
+    this.getBooksFromWishlist();
   }
-  getBooksFromWishlist(userId){
-    this.httpService.getBooksFromWishlist(userId).subscribe(data => {
+  getBooksFromWishlist(){
+    this.httpService.getBooksFromWishlist().subscribe(data => {
       this.books = data;
-      this.userId = userId;
       console.log('Data get in wishlist', data);
     });
-    console.log(userId);
   }
   removeFromWishlist(book){
-    var wishlistObj = new Wishlist(this.userId, book.id);
+    var wishlistObj = new Wishlist(book.id);
     this.httpService.removeFromWishlist(wishlistObj).subscribe(data => {
-     // this.userId = userId
-     this.getBooksFromWishlist(this.userId);
+     this.getBooksFromWishlist();
     });
     console.log('Book removed from Wishlist');
   }

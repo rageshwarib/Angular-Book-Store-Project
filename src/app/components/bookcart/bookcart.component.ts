@@ -53,7 +53,7 @@ export class BookcartComponent implements OnInit {
    console.log(cartObj);
  }
  addToWishlist(){
-  var wishlistObj = new Wishlist(this.userId, this.book.id);
+  var wishlistObj = new Wishlist(this.book.id);
   this.httpService.addToWishlist(wishlistObj).subscribe(data => {
   });
   console.log('Book added to wishlist');

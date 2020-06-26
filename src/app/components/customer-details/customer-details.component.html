@@ -1,0 +1,96 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="myForm" class="cust-mat-card">
+    <div class="spac-left">
+      <p class="title-style">Customer Details</p>
+      <!-- <p class="edit">Edit</p> -->
+      <div>
+        <mat-form-field class="fill-wid" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" [(ngModel)]="customerDetailObj.name" formControlName="name" />
+          <mat-error *ngIf="myForm.get('name').errors?.required && myForm.get('name').touched">
+            Name is required
+          </mat-error>
+          <mat-error *ngIf="myForm.get('name').errors?.pattern">
+            full name required
+          </mat-error>
+
+        </mat-form-field>
+        <!-- <mat-form-field class="cust-field" appearance="outline">
+          <mat-label>Phone number</mat-label>
+          <input matInput [(ngModel)]="customerObj.username" formControlName="number" />
+          <mat-error *ngIf="myForm.get('number').errors?.required && myForm.get('number').touched">
+            Phone number is required
+          </mat-error>
+          <mat-error *ngIf="myForm.get('number').errors?.pattern">
+            Number must be 10 digit required
+          </mat-error>
+        </mat-form-field> -->
+      </div>
+      <div>
+        <mat-form-field class="fill-wid" appearance="outline">
+          <mat-label>Pincode</mat-label>
+          <input matInput [(ngModel)]="customerDetailObj.pincode" formControlName="pincode" />
+          <mat-error *ngIf="myForm.get('pincode').errors?.required && myForm.get('pincode').touched">
+            Phone number is required
+          </mat-error>
+          <mat-error *ngIf="myForm.get('pincode').errors?.pattern">
+            Pincode must be 6 digit required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="cust-field" appearance="outline">
+          <mat-label>Locality</mat-label>
+          <input matInput [(ngModel)]="customerDetailObj.locality" formControlName="locality" />
+          <mat-error *ngIf="myForm.get('locality').invalid && myForm.get('locality').touched">
+            Locality is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="cust-add-field" appearance="outline">
+          <mat-label>Address</mat-label>
+          <input matInput [(ngModel)]="customerDetailObj.address" formControlName="address" />
+          <mat-error *ngIf="myForm.get('address').invalid && myForm.get('address').touched">
+            Address is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fill-wid" appearance="outline">
+          <mat-label>City/Town</mat-label>
+          <input matInput [(ngModel)]="customerDetailObj.city" formControlName="city" />
+          <mat-error *ngIf="myForm.get('city').invalid && myForm.get('city').touched">
+            City/Town is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="cust-field" appearance="outline">
+          <mat-label>Landmark</mat-label>
+          <input matInput [(ngModel)]="customerDetailObj.landmark" formControlName="landmark" />
+          <mat-error *ngIf="myForm.get('landmark').invalid && myForm.get('landmark').touched">
+            Landmark is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <label>Type</label><br><br>
+      <div class="spec-bottom">
+        <mat-radio-group [(ngModel)]="customerDetailObj.type" aria-label="Select an option">
+
+          <mat-radio-button class="spac-left">Home</mat-radio-button>
+          <mat-radio-button class="spac-left" value="2">Work</mat-radio-button>
+          <mat-radio-button class="spac-left" value="3">Other</mat-radio-button>
+
+        </mat-radio-group>
+        <div class="button">
+          <button type="submit" [disabled]="myForm.invalid" class="cust-btn" *ngIf="this.isButtonVisible" mat-button
+            (click)="isClicked = true; addDetails();
+                openSnackBar('Customer Details Added Successfull !!!', 'Submit');
+                this.isButtonVisible = false">
+            CONTINUE
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<app-order-summery *ngIf="isClicked"></app-order-summery>
