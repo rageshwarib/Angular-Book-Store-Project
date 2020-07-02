@@ -4,9 +4,10 @@
       <mat-icon class="bs-icon-style">menu_book</mat-icon>
       <a routerLink="/" class="bs-label"> <p>Bookstore</p></a>
       <span class="srch-bar-position"></span>
-      <input type="text"class="srch-bar-style" matInput placeholder=" &#xF002; Search..." />
-       
-      <span class="cart-position"></span>
+      <input type="text"class="srch-bar-style"[(ngModel)] = "searchText"  
+      matInput placeholder=" &#xF002; Search..."
+         (click)  = "searchBooks(searchText)"/> 
+      <span class="cart-position" ></span>
       <span>Cart</span>
       <a routerLink="/cart">
         <mat-icon matBadge={{cartCount}} matBadgeSize="small"class="cart-icon-style">
@@ -17,6 +18,11 @@
       <a routerLink="/wishlist">
         <mat-icon matBadge= {{wishCount}} matBadgeSize="small"class="cart-icon-style">
           favorite_border</mat-icon>
+      </a>
+      <span class="wish-space"></span>
+      <a routerLink="/login">
+        <mat-icon class="cart-icon-style">
+        account_circle</mat-icon>
       </a>
     </mat-toolbar-row>
   </mat-toolbar>

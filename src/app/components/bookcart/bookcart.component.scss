@@ -1,7 +1,7 @@
-.mat-card{
+.mat-card {
   transition: none !important;
   box-shadow: none !important;
-  border: rgb(184, 184, 184) 1px  solid; 
+  border: rgb(184, 184, 184) 1px solid;
 }
 
 .image-style {
@@ -11,19 +11,18 @@
   margin-top: 5%;
   margin-bottom: 5%;
 }
-.des-style{
+.des-style {
   font-weight: bold;
   font-size: 18px;
-
 }
 .title-style {
   font-size: 90%;
   line-height: 16px;
-  white-space: nowrap; 
-  width: 180px; 
+  white-space: nowrap;
+  width: 180px;
   overflow: hidden;
-  text-overflow: ellipsis; 
-  }
+  text-overflow: ellipsis;
+}
 
 .author-style {
   font-size: 50%;
@@ -44,20 +43,22 @@
 }
 
 .addtobag-btn {
-   background-color: brown;
-   border: unset;
-   color: white;
-   height: 30px;
-  
- }
- .wishlist-btn {
+  background-color: brown;
+  border: unset;
+  color: white;
+  height: 30px;
+}
+.wishlist-btn {
   margin-left: 21px;
   height: 30px;
- }
-  .green {
-  background-color: green;
- }
-
+}
+.green {
+  background-color: rgb(74, 199, 74);
+}
+blue {
+  background-color: rgb(22, 113, 218);
+  width: 100%;
+}	
 .tooltip-wrap {
   background-color: rgb(245, 247, 247);
   margin: -0px -15px -8px -15px;
@@ -65,14 +66,13 @@
 }
 .tooltip-wrap .tooltip-content {
   display: none;
-  position:absolute;
+  position: absolute;
   bottom: 45px;
   width: 350px;
   left: -155px;
   right: 0;
   background-color: #fff;
-
 }
 .tooltip-wrap:hover .tooltip-content {
- display: block;
+  display: block;
 }

@@ -26,10 +26,10 @@ export class LoginComponent implements OnInit {
     Validators.pattern(this.NAME_PATTERN),
   ]);
   matcher = new MyErrorStateMatcher();
-  ngOnInit(): void {
-  }
+  ngOnInit() {}
   loginUser(){
     this.authService.loginUser(this.signInObj).subscribe(data => {
+      localStorage.setItem("token", data.accessToken);
       console.log(data);
     });
     console.log('Login User');

@@ -1,21 +1,25 @@
 <div>
   <mat-card class="mat-card">
-    <p>My WishList</p>
+    <p class="card-style">WishList({{ books?.length }})</p>
     <div *ngFor="let wishlistBooks of books">
-      <img class="card-img"
-        src="https://books.google.com/books/content?id=GHt_uwEACAAJ&printsec=frontcover&img=1&zoom=5" />
+      <img class="card-img" [src]="getImageUrl(wishlistBooks)" />
       <div class="card-data">
-        <p>{{ wishlistBooks.title }}</p>
-        <p>by {{ wishlistBooks.author }}</p>
-        <p>{{ wishlistBooks.price }}</p>
-        <button class="rem-btn" (click)="removeFromWishlist(wishlistBooks)" mat-button>REMOVE</button>
-      </div>
-      <div>
-        <a routerLink="/cart"><button class="card-btn" mat-button>Add to Cart</button></a>
+        <p class="title-style">{{ wishlistBooks.title }}</p>
+        <p class="author-style">by {{ wishlistBooks.author }}</p>
+        <p class="price-style">Rs.{{ wishlistBooks.price }}</p>
+        <div class="btn-style">
+          <button
+            class="rem-btn"
+            (click)="removeFromWishList(wishlistBooks); openSnackBar('Book Reomve From Wishlist !!!','Remove')"
+            mat-button>REMOVE
+          </button>
+            <button class="addcard-btn"(click)=" addToCart(wishlistBooks); openSnackBar('Book Added To Cart !!!','Submit')"
+            mat-button>Add to Cart
+            </button>
+        </div>
       </div>
       <mat-divider></mat-divider>
     </div>
     <br />
-    
   </mat-card>
 </div>

@@ -1,6 +1,5 @@
 <mat-card class="card-style">
   <div>
-    <mat-card class="form-style">
       <mat-card-header>
         <div>
           <img class="header-img-style" src="assets/signupImage.png" />
@@ -16,14 +15,7 @@
             <mat-form-field class="field-style">
               <mat-label>Username</mat-label>
               <mat-icon matSuffix>person</mat-icon>
-              <input matInput [(ngModel)] = "signUpObj.username" [formControl]="nameFormControl" [errorStateMatcher]="matcher" />
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field class="field-style">
-              <mat-label>Email id</mat-label>
-              <mat-icon matSuffix>mail_outline</mat-icon>
-              <input matInput [(ngModel)] = "signUpObj.email" [formControl]="emailFormControl" [errorStateMatcher]="matcher" />
+              <input matInput [(ngModel)] = "signUpObj.username" />
             </mat-form-field>
           </div>
           <div>
@@ -31,15 +23,19 @@
               <mat-label>Phone Number</mat-label>
               <mat-icon matSuffix>call</mat-icon>
               <input matInput [(ngModel)] = "signUpObj.mobileNumber">
-              <!-- <mat-error *ngIf="numberFormControl.hasError(' MOBILE_PATTERN')">
-                Please enter 10 digit number
-              </mat-error>  -->
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="field-style">
+              <mat-label>Email id</mat-label>
+              <mat-icon matSuffix>mail_outline</mat-icon>
+              <input matInput [(ngModel)] = "signUpObj.email"[formControl]="emailFormControl" [errorStateMatcher]="matcher" />
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="field-style">
               <mat-label> password</mat-label>
-              <input matInput [(ngModel)] = "signUpObj.password" [type]="hide ? 'password' : 'text'" />
+              <input matInput [(ngModel)] = "signUpObj.password"[type]="hide ? 'password' : 'text'" />
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
@@ -47,7 +43,7 @@
             </mat-form-field>
           </div>
           <mat-radio-group [(ngModel)] = "signUpObj.role" aria-label="Select an option">
-            <mat-radio-button>Admin</mat-radio-button>
+            <mat-radio-button >Admin</mat-radio-button>
             <mat-radio-button class="radio-btn" value="2">User</mat-radio-button>
           </mat-radio-group>
 
@@ -56,13 +52,10 @@
       <mat-card-actions>
         <div style="margin-left: 1%;">
           <a routerLink="/login">
-
-            <button mat-button (click) = "registerUser()" class="signup-btn">Signup</button></a>
-
+            <button mat-button (click)="registerUser()" class="signup-btn">Signup</button></a>
         </div>
         <p>Already have account
           <a class="link-style" routerLink="/login">Login here</a></p>
       </mat-card-actions>
-    </mat-card>
   </div>
 </mat-card>

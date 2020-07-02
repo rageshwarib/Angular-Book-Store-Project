@@ -33,4 +33,5 @@ public forgotPasswordObj = new ForgotPassword();
     });
     console.log('Token is sent on your Mail');
   }
+
 }

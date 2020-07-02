@@ -12,17 +12,16 @@ export class OrderSummeryComponent implements OnInit {
   imageUrl: string;
 
    constructor(public cartOrderSummaryService: CartOrderSummaryService, public sanitizer: DomSanitizer) { }
-  ngOnInit(): void {
-   this.cartOrderSummaryService.orderSummaryBooks.subscribe(data => {
-     this.cartBooks = data;
-   });
- }
- getImageUrl(book) {
-   this.imageUrl = book.image;
-   if (this.imageUrl != null) {
-     var firstReplacement = this.imageUrl.replace("'", '');
-     return this.sanitizer.bypassSecurityTrustUrl(firstReplacement.replace("'", ''));
-   }
+   ngOnInit(): void {
+    this.cartOrderSummaryService.orderSummaryBooks.subscribe(data => {
+      this.cartBooks = data;
+    });
   }
-
+  getImageUrl(book) {
+    this.imageUrl = book.image;
+    if (this.imageUrl != null) {
+      var firstReplacement = this.imageUrl.replace("'", '');
+      return this.sanitizer.bypassSecurityTrustUrl(firstReplacement.replace("'", ''));
+    }
+  }
 }

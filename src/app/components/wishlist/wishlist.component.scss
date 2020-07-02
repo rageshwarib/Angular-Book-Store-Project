@@ -9,17 +9,15 @@
   font: 15px Arial, sans-serif;
 }
 .card-img{
-  margin-top: 3%;
+  margin-top: 2%;
   max-height: 130px;
 }
 .card-data{
-  margin-top: -23%;
+  margin-top: -20%;
   margin-left: 130px;
 }
-.card-btn{
-  margin-left: 500px;
-  color: white;
-  background-color: rgb(45, 125, 206);
+.card-style{
+  font-size: 18px ;
 }
 
 .btn-icon{
@@ -30,7 +28,32 @@
   margin-right: 10px;
 }
 .rem-btn{
-  margin-left: 300px;
+  
   color: white;
   background-color: rgb(170, 46, 46);
+}
+.addcard-btn{
+  margin-left: 40px;
+  color: white;
+  background-color: rgb(45, 125, 206);
+}
+.btn-style{
+  margin-left: 250px;
+  margin-bottom: 5%;
+}
+.title-style {
+  font-size: 90%;
+  white-space: nowrap; 
+  width: 180px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  }
+
+.author-style {
+  font-size: 50%;
+  color: grey;
+}
+.price-style {
+  font-size: 75%;
+  font-weight: bold;
 }

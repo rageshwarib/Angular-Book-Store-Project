@@ -1,36 +1,60 @@
 .label-style {
-    display: flex;
-    justify-content: space-between;
-    font: 15px Arial, sans-serif;
-  }
-  .book-name-style{
-    font-size: 22px;
-  }
-  .selector-style {
-    margin-top: 14px;
-    width: 15%;
-  }
-  .select-style {
-    width: 100%;
-  }
-  .books-styles {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .pagination a {
-    color: brown;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-  }
-  .pagination a.active {
-    background-color: brown;
-    color: white;
-  }
-  .pagination a:hover:not(.active) {
-    background-color: #ddd;
-  }
-  
-  
-  
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  font: 15px Arial, sans-serif;
+}
+.book-name-style{
+  font-size: 22px;
+  margin-left: 1%;
+}
+.bs-cnt-style{
+  font-size: 12px;
+  color: gray;
+}
+.selector-style {
+  margin-top: 30px;
+  margin-right: 3%;
+  width: 13%;
+}
+.select-style {
+  width: 100%;
+}
+.books-styles {
+  display: flex;
+  margin-left:initial;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.card-bet-space{
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.pagination {
+  display: flex;
+  // padding-left: 30%;
+  // padding-right: 40%;
+  // padding-bottom: 2%;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.pagination a.active {
+  background-color: brown;
+  color: white;
+}
+.pagination a:hover:not(.active) {
+  background-color: brown;
+}
+.bs-pagination-style{
+  border-radius: 47%;
+  background-color: white;
+}
+// .active{
+//   background-color: brown;
+// }

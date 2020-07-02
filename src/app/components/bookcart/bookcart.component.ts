@@ -5,6 +5,7 @@ import { HttpService } from 'src/app/service/http.service';
 import { Cart } from 'src/app/model/cart';
 import { Wishlist } from 'src/app/model/wishlist';
 import { AddToWishlistService } from 'src/app/service/add-to-wishlist.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-bookcart',
@@ -16,17 +17,27 @@ export class BookcartComponent implements OnInit {
   toggle: boolean;
   isDisabled: boolean;
   imageUrl: string;
-  userId = 1;
-  bookQuantity = 1;
-  books = [] ;
+  bookQuantity = 1 ;
+  isevent = true;
+  constructor(public addToBag: AddToBagService,
+              public addToWish: AddToWishlistService,
+              public sanitizer: DomSanitizer, public httpService: HttpService,
+              private snackBar: MatSnackBar) { }
 
-  constructor(public addToBag: AddToBagService, public addToWish: AddToWishlistService, public sanitizer: DomSanitizer, public httpService: HttpService) { }
-
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.imageUrl = this.book.image;
     this.getImageUrl();
   }
-  colorChange() {
+  Toggle() {
+    this.toggle = true;
+  }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+       duration: 2000,
+
+    });
+ }
+  sizeChange() {
     this.toggle = true;
   }
   getImageUrl() {
@@ -36,27 +47,26 @@ export class BookcartComponent implements OnInit {
     }
   }
   incrementBagCnt() {
-    this.addToBag.incrementBagCnt();
-   // console.log(this.count);
+    this.addToBag.getCartBook();
     this.isDisabled = true;
   }
   incrementWishlistCnt() {
-    this.addToWish.incrementWishlistCnt();
-   // console.log(this.count);
+    this.addToWish.getwishlistBook();
     this.isDisabled = true;
   }
 
   addToCart(){
   var cartObj = new Cart(this.book.id, this.bookQuantity);
-   this.httpService.addToCart(cartObj).subscribe(data => {});
-   console.log('Book added to cart');
-   console.log(cartObj);
+  this.httpService.postRequest(cartObj, '/home/cart/add-to-cart').subscribe(data => {
+  });
+  console.log('Book added to cart' );
+  console.log(cartObj);
  }
  addToWishlist(){
-  var wishlistObj = new Wishlist(this.book.id);
-  this.httpService.addToWishlist(wishlistObj).subscribe(data => {
+  var cartObj = new Wishlist(this.book.id);
+  this.httpService.postRequest(cartObj, '/home/wishlist/add-to-wishlist').subscribe(data => {
+    // console.log('data in wishlist', data);
   });
   console.log('Book added to wishlist');
-  console.log(wishlistObj);
 }
 }

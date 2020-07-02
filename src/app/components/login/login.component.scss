@@ -1,29 +1,26 @@
-.card-style{
-display: flex;
- justify-content: center;
- align-items: center;
-   width: 880px;
-  margin: auto;
-  height: 500px;
-  
- }
- .form-style{
-    background-color: #F6EAEA;
-    height: 400px;
-    width: 380px;
-    margin-top: 10%;
- }
- .header-img-style {
+.card-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  margin: auto; 
+  margin-top: 10%;
+  background-color: #f6eaea;
+}
+.header-img-style {
   border-radius: 100%;
   width: 45%;
   margin-left: 45%;
   margin-top: -28%;
 }
 .login-name {
-  margin-top: 63px;
-  margin-left: -111%;
+  margin-top: 45%;
+  margin-left: -121%;
 }
-.button-margin{
+.field-style {
+  width: 370px;
+}
+.button-margin {
   margin-left: 8px;
   margin-right: 12px;
 }
@@ -31,11 +28,8 @@ display: flex;
   display: flex;
   justify-content: space-between;
 }
-.field-style {
-  width: 370px;
-}
 .login-btn {
-  background-color:#a52a2a;
+  background-color: #a52a2a;
   color: white;
   width: 150px;
 }
@@ -43,10 +37,7 @@ display: flex;
   background-color: #a52a2a;
   color: white;
   width: 150px;
-} 
+}
 .link-style {
   color: brown;
-  
 }
-  
-  

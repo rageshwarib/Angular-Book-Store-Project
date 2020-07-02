@@ -16,7 +16,7 @@ export class CustomerDetailsComponent implements OnInit {
   public isButtonVisible = true;
   public isClicked: boolean;
   customerArray = [];
-  public customerDetailObj = new CustomerDetails();
+  public customerObj = new CustomerDetails();
 
   MOBILE_PATTERN = /^[1-9]{1}[0-9]{9}$/;
   PINCODE_PATTERN = /^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/;
@@ -43,18 +43,9 @@ export class CustomerDetailsComponent implements OnInit {
       duration: 2000,
     });
   }
-
-addDetails(){
-  this.httpService.customerDetails(this.customerDetailObj).subscribe(data => {
-    console.log('Data in get table', data);
-  });
-}
-  // addDetails(){
-  //   this.httpService.addDetails().subscribe(data => {
-  //     this.customerArray = data;
-  //     this.customerDetailsService.getCustomerDetails(this.customerArray );
-  //     console.log('Data in get table', data);
-  //   });
-  // }
-
+  addDetails(){
+    this.httpService.addCustomerDetails(this.customerObj).subscribe(data => {
+      console.log(data);
+    });
+  }
 }

@@ -10,13 +10,13 @@ export class PlaceOrderComponent implements OnInit {
   orderId;
   constructor(private httService: HttpService) { }
 
-  ngOnInit(): void {
-    this.getOrderId();
-  }
+ngOnInit(): void {
+  this.getOrderId();
+}
+
 getOrderId(){
   this.httService.getOrderId().subscribe(data => {
   this.orderId = data;
   });
-  
 }
 }

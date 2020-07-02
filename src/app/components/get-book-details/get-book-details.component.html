@@ -1,35 +1,60 @@
-<div>
-  <div>
-    <div class="label-style">
-      <p>Books [items]</p>
-      <div class="selector-style">
-        <select (change)="changed($event)" class="select-style" >
-          <option value = "">Sort by relevance</option>
-          <option value = "Low">Price: Low to High</option>
-          <option value = "High">Price: High to Low</option>
-          <option value = "NewArrival">Newest Arrivals</option>
-        </select>
-      </div>
-    </div>
+<div class="label-style">
+  <p class="book-name-style">Books <span class="bs-cnt-style">({{ bookArray?.length }} items)</span></p>
+  <div class="selector-style">
+    <select (change)="sort($event)" class="select-style">
+      <option value="" selected disabled hidden>Sort by relevance</option>
+      <option value="Low">Price: Low to High</option>
+      <option value="High">Price: High to Low</option>
+      <option value="NewArrival">Newest Arrivals</option>
+    </select>
   </div>
 </div>
-<div>
-  <div class="books-styles">
-    <div *ngFor="let book of bookArray | paginate: { itemsPerPage: 12, currentPage: p }">
-       <app-bookcart [book]=book></app-bookcart>
-       <!-- <app-cart>[book]=book</app-cart> -->
-      <br>
-    </div>
+
+<div class="books-styles">
+  <div class="card-bet-space" *ngFor="let book of bookArray">
+    <app-bookcart [book]="book"></app-bookcart>
+    <br/>
   </div>
+
+  <!-- <div class="pagination ">
+    <div *ngFor="let item of pageOfItems">{{item.name}}</div>
 </div>
-<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-<div  (pageChange)="p = $event" class="pagination">
-  <a href="#">&lt;</a>
-  <a href="#">1</a>
-  <a class="active" href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a href="#">&gt;</a>
-</div>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+</div> -->
+  <!-- <ul class="pagination ">
+    <li ng-repeat=" ng-repeat="n in [] | range:totalPages""  >
+  
+      <a href="">{{ $index+1 }}</a>
+    </li>
+  </ul> -->
+  <!-- <div  (click)="pageSelect($event)" class="pagination">
+  <ul class="pagination" >
+    <li ng-repeat="page in pagination" ng-class="{'active':currentPage == page}"><a ng-click="pageSelect($event)">{{page + 1}}</a></li>
+</ul>
+</div> -->
+<!-- <div *ngFor="let page of pages"> -->
+  <!-- <div  (click)="pageSelect($event)" class="pagination">
+    <div class="bs-pagination-style" *ngFor="let page of pages"></div>
+    <a class="bs-pagination-style" href="#">&lt;</a>
+    <a href="#">{{pages}}</a>
+     <a href="#">{{page}}</a>
+    <a href="#">{{page}}</a>
+    <a href="#">{{page}}</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>  
+    <a class="bs-pagination-style" href="#">&gt;</a>
+  </div>  -->
+  <!-- <div class = "pagination" >
+  <button (click)="pageSelect(i, $event)">{{previous}}</button>
+</div> -->
+<div class = "pagination" *ngFor="let page of pages let i = index">
+  
+  <a href="" (click)="pageSelect(i, $event)" [ngClass] = "{'active':i==page}">{{i+1}}</a>
+  
+
+</div> 
+<!-- <div class = "pagination" *ngFor="let page of pages; let i = index">
+<button (click)="pageSelect(i, $event)">{{next}}</button>
+</div>  -->

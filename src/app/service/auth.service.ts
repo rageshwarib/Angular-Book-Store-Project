@@ -8,6 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   header = {headers: new HttpHeaders().set('token', localStorage.getItem('emailToken'))}
+ // localStorage.setItem('currentUser', JSON.stringify({ token: emailToekn, name: name }));
+ // window.lo
+
+  
 authUrl = environment.authUrl;
   constructor(private http: HttpClient) { }
 
@@ -15,7 +19,7 @@ authUrl = environment.authUrl;
     return this.http.post(this.authUrl + '/signup', signUpObj, {responseType: 'text'});
   }
   loginUser(signInObj): any{
-    return this.http.post(this.authUrl + '/signin', signInObj, {responseType: 'text'});
+    return this.http.post(this.authUrl + '/signin', signInObj);
   }
   forgotPassword(email): any {
     return this.http.get(this.authUrl + '/forgot-password/' + email, {responseType: 'text'});

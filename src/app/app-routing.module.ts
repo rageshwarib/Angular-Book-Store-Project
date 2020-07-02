@@ -18,9 +18,9 @@ const routes: Routes = [
     children: [{path: '', component: GetBookDetailsComponent},
     {path: 'cart', component: CartComponent},
     {path: 'success', component: PlaceOrderComponent},
-     {path: 'login', component: LoginComponent},
-     {path: 'signup', component: SignupComponent},
-     {path: 'password', component: ForgetPasswordComponent},
+    // {path: 'login', component: LoginComponent},
+    // {path: 'signup', component: SignupComponent},
+    // {path: 'password', component: ForgetPasswordComponent},
      {path: 'wishlist', component: WishlistComponent}
     ]
   },

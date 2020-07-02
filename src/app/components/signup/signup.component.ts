@@ -15,15 +15,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  NAME_PATTERN = /^[A-Z][a-zA-Z]{2,}$/;
   EMAIL_PATTERN = /^[a-zA-Z0-9]{1,}([.\_\+\-]?[a-zA-Z0-9]{1,})?[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]?[a-z]{2})?$/;
   hide = true;
-public signUpObj = new SignUp();
+  public signUpObj = new SignUp();
   constructor(private authService: AuthService) { }
-  nameFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(this.NAME_PATTERN),
-  ]);
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.pattern(this.EMAIL_PATTERN),

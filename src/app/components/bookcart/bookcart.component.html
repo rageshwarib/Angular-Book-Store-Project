@@ -1,21 +1,37 @@
 <div>
-    <mat-card class="mat-card">
-      <div>
-        <div class="tooltip-wrap">
+  <mat-card class="mat-card">
+    <div>
+      <div class="tooltip-wrap">
         <img class="image-style" [src]="getImageUrl()" />
-          <mat-card class="tooltip-content">
-            <p class="des-style">Book Details</p>{{ book.description }}
-          </mat-card> 
-        </div>
+        <mat-card class="tooltip-content">
+          <p class="des-style">Book Details</p>
+          {{ book.description }}
+        </mat-card>
       </div>
-      <p class="title-style">{{ book.title }}</p>
-      <p class="author-style">by {{ book.author }}</p>
-      <p class="price-style">Rs.{{ book.price }}</p>  
-      <button (click)="incrementBagCnt(); addToCart()" class="addtobag-btn" 
-      disabled={{isDisabled}}>ADD TO BAG</button>
-      
-      <button (click)="incrementWishlistCnt(); colorChange(); addToWishlist()"
-       [ngClass]="{ green: toggle }"class="wishlist-btn" >WISHLIST
-      </button>
-    </mat-card>
-  </div >
+    </div>
+    <p class="title-style">{{ book.title }}</p>
+    <p class="author-style">by {{ book.author }}</p>
+    <p class="price-style">Rs.{{ book.price }}</p>
+    
+    <button
+      (click)="
+        openSnackBar('Book Added To Cart !!!', 'Submit');
+        incrementBagCnt(); Toggle();
+        addToCart(); isevent = false"
+        [ngClass]="{ blue: toggle }"
+      class="addtobag-btn"
+      disabled="{{ isDisabled }}">
+      ADD TO BAG
+    </button>
+    <button *ngIf= "isevent == true"
+      (click)="
+        openSnackBar('Book Added To Wishlist !!!', 'Submit');
+        incrementWishlistCnt();
+        addToWishlist()"
+      class="wishlist-btn"
+      disabled="{{ isDisabled }}">
+
+      WISHLIST
+    </button>
+  </mat-card>
+</div>

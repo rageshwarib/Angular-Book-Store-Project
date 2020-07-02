@@ -1,28 +1,28 @@
 <mat-card class="card-style">
   <div>
-    <mat-card class="form-style">
       <mat-card-header>
         <div>
-          <img class="header-img-style" src="assets/loginImage.png" />
+          <a routerLink="/">
+          <img class="header-img-style" src="assets/loginImage.png " alt="filter applied"/>
+        </a>
         </div>
         <div>
           <mat-card-title class="login-name">Login Form</mat-card-title>
         </div>
       </mat-card-header>
-      <br>
       <div>
         <mat-card-content>
           <div>
             <mat-form-field class="field-style">
               <mat-label>Username</mat-label>
               <mat-icon matSuffix>person</mat-icon>
-              <input matInput  [(ngModel)] = "signInObj.username" [formControl]="nameFormControl" [errorStateMatcher]="matcher" />
+              <input matInput [(ngModel)] = "signInObj.username" />
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="field-style">
               <mat-label> password</mat-label>
-              <input matInput [(ngModel)] = "signInObj.password" [type]="hide ? 'password' : 'text'" />
+              <input matInput [(ngModel)] = "signInObj.password"  [type]="hide ? 'password' : 'text'" />
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
@@ -33,7 +33,9 @@
         <mat-card-actions>
           <div class="button-margin">
             <div class="button-style">
-              <button class="login-btn" (click) = "loginUser()" mat-button>Login</button>
+              <a routerLink="/">
+              <button class="login-btn" mat-button (click)="loginUser()">Login</button>
+            </a>
               <a routerLink="/signup">
                 <button class="signup-btn" mat-button>Signup</button>
               </a>
@@ -41,9 +43,8 @@
           </div>
           <br>
           <p style="margin-left: 2%;">forgot 
-            <a class="link-style" routerLink="/password">Password?</a></p>
+            <a class="link-style" routerLink="/password">Password</a></p>
         </mat-card-actions>
       </div>
-    </mat-card>
   </div>
 </mat-card>
