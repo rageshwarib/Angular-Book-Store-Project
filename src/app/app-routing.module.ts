@@ -10,6 +10,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ActivateGuard } from './activate.guard';
+import { InvalidUrlComponent } from './components/invalid-url/invalid-url.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,10 @@ const routes: Routes = [
   },
   {
     path: 'resetpassword', component: ResetPasswordComponent
-  }
+  },
+  {
+    path: '**', component: InvalidUrlComponent
+  },
 ];
 
 @NgModule({

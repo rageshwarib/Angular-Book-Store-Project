@@ -1,4 +1,9 @@
-
+<div class="loading-sp" *ngIf="loading">
+  <img 
+    src="assets/Reload.gif"
+  />
+</div>
+<div *ngIf="loading == false">
   <mat-card class="mat-card font">
     <p class="card-style">My Cart ({{ books?.length }})</p>
     <div *ngIf="!books || books?.length === 0">
@@ -46,4 +51,4 @@
 </div>
 
 <app-order-summery></app-order-summery>
-
+</div>

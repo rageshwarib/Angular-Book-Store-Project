@@ -1,5 +1,5 @@
 <div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="myForm" class="cust-mat-card">
+  <form (ngSubmit)="onSubmit()" [formGroup]="myForm" class="cust-mat-card font">
     <div class="spac-left">
       <p class="title-style">Customer Details</p>
       <!-- <p class="edit">Edit</p> -->
@@ -16,22 +16,8 @@
             *ngIf="myForm.get('name').errors?.pattern"
           >
            full name required 
-          </mat-error>
-        
+          </mat-error>     
         </mat-form-field>
-        <!-- <mat-form-field class="cust-field" appearance="outline">
-          <mat-label>Phone number</mat-label>
-          <input matInput formControlName="number" />
-          <mat-error
-          *ngIf="myForm.get('number').errors?.required && myForm.get('number').touched"
-        >
-          Phone number is required
-        </mat-error>
-        <mat-error
-          *ngIf="myForm.get('number').errors?.pattern">
-         Number must be 10 digit required 
-        </mat-error>
-        </mat-form-field> -->
       </div>
       <div>
         <mat-form-field class="fill-wid" appearance="outline">
@@ -109,4 +95,3 @@
     </div>
   </form>
 </div>
-<!-- <app-order-summery *ngIf="isClicked"></app-order-summery> -->

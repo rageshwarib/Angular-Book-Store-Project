@@ -1,2 +1,181 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.font{
+  font: 15px Arial, sans-serif;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+//toolbar
+.dashboard-style {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  height: -webkit-fill-available;
+}
+@media (max-width: 1024px) {
+  .dashboard-style {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+.toolbar-style {
+  background-color: rgb(141, 19, 19);
+  color: white;
+  height: 20%;
+}
+@media (max-width: 500px) {
+  .toolbar-style {
+    height: 8%;
+  }
+}
+.bs-label {
+  font-size: 120%;
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 500px) {
+  .bs-label {
+    font-size: 80%;
+    margin-left: 0%;
+  }
+}
+.bs-icon-style {
+  margin-left: 9.3%;
+}
+@media (max-width: 500px) {
+  .bs-icon-style {
+    margin-top: 4%;
+    margin-left: -2%;
+    font-size: 90%;
+  }
+}
+
+.mat-badge-content {
+  background: white;
+  color: black;
+}
+.cart-icon-style {
+  margin-left: 4px;
+  color: white;
+  border: none;
+  background-color: rgb(141, 19, 19);
+}
+@media (max-width: 500px) {
+  .cart-icon-style {
+    margin-left: 0%;
+    font-size: 100%;
+    margin-top: 10px;
+    margin-right: -2px;
+  }
+}
+.bs-log {
+  margin-left: 4px;
+  font-size: 120%;
+  color: white;
+  border: none;
+  background-color: rgb(141, 19, 19);
+}
+@media (max-width: 500px) {
+  .bs-log {
+    margin-left: 0%;
+    font-size: 80%;
+    margin-right: -15px;
+  }
+}
+.cart-position {
+  margin-left: 10%;
+}
+@media (max-width: 500px) {
+  .cart-position {
+    margin-left: 2%;
+  }
+}
+.wish-space {
+  margin-left: 3%;
+}
+.footer-style {
+  background-color: rgb(59, 12, 12);
+  color: white;
+  height: 50px;
+}
+.bs-footer-style {
+  margin-left: 9%;
+  padding-top: 1px;
+}
+//spinner
+.loading-sp {
+  margin-left: 40%;
+}
+@media (orientation: landscape) and (max-width: 100%) {
+  .navbar-style {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    color: white;
+  }
+}
+//selector
+.selector-style {
+  margin-top: 30px;
+  margin-right: 3%;
+  width: 13%;
+}
+@media (max-width: 768px) {
+  .selector-style {
+    margin-top: 5%;
+    margin-right: 13%;
+    width: 10%;
+  }
+}
+@media (max-width: 500px) {
+  .selector-style {
+    margin-top: 5%;
+    margin-right: 40%;
+    width: 10%;
+  }
+}
+.book-name-style{
+  font-size: 22px;
+  margin-left: 1%;
+}
+@media (max-width: 500px) {
+  .book-name-style{
+    font-size: 100%;
+  }
+}
+.bookcard-styles {
+  display: flex;
+  margin-left:initial;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: white;
+}
+//auth pages
+.auth-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  margin: auto;
+  margin-top: 10%;
+  background-color: #f6eaea;
+}
+.header-img-style {
+  border-radius: 100%;
+  width: 45%;
+  margin-left: 46%;
+  margin-top: -28%;
+}
+.field-style {
+  width: 100%;
+}
+.title-name {
+  margin-top: 45%;
+  margin-left: -121%;
+}
+.link-style {
+  color: brown;
+}

@@ -1,6 +1,15 @@
-<div>
-  <mat-card class="mat-card">
+<div class="loading-sp" *ngIf="loading">
+  <img 
+    src="assets/Reload-0.8s-200px .gif"
+  />
+</div>
+<div  *ngIf="loading == false">
+  <mat-card class="mat-card font">
     <p class="card-style">WishList({{ books?.length }})</p>
+    <div *ngIf="!books || books?.length === 0">
+      <p class="bs-msg">Youre Wishlist is Empty...!!!</p>
+    </div>
+    <div *ngIf="books || books?.length > 0">
     <div *ngFor="let wishlistBooks of books">
       <img class="card-img" [src]="getImageUrl(wishlistBooks)" />
       <div class="card-data">
@@ -13,13 +22,15 @@
             (click)="removeFromWishList(wishlistBooks); openSnackBar('Book Reomve From Wishlist !!!','Remove')"
             mat-button>REMOVE
           </button>
-            <button class="addcard-btn"(click)=" addToCart(wishlistBooks); openSnackBar('Book Added To Cart !!!','Submit')"
+            <button class="addcard-btn"(click)="incrementBagCnt(); addToCart(wishlistBooks);  removeFromWishList(wishlistBooks);
+             openSnackBar('Book Added To Cart !!!','Submit')"
             mat-button>Add to Cart
             </button>
         </div>
       </div>
       <mat-divider></mat-divider>
     </div>
+  </div>
     <br />
   </mat-card>
 </div>

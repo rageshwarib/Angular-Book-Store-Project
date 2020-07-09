@@ -6,7 +6,7 @@ import { HttpService } from './http.service';
   providedIn: 'root'
 })
 export class AddToBagService {
-  badgeCounter = 1;
+  badgeCounter;
   bagBook = new BehaviorSubject([]);
   bagBookObservable = this.bagBook.asObservable();
   count = new BehaviorSubject(this.badgeCounter);

@@ -1,17 +1,17 @@
 <div>
-  <mat-card class="mat-card">
+  <mat-card class="bs-card">
     <div>
       <div class="tooltip-wrap">
-        <img class="image-style" [src]="getImageUrl()" />
+        <img class="bs-img" [src]="getImageUrl()" />
         <mat-card class="tooltip-content">
           <p class="des-style">Book Details</p>
           {{ book.description }}
         </mat-card>
       </div>
     </div>
-    <p class="title-style">{{ book.title }}</p>
-    <p class="author-style">by {{ book.author }}</p>
-    <p class="price-style">Rs.{{ book.price }}</p>
+    <p class="bs-title">{{ book.title }}</p>
+    <p class="bs-author">by {{ book.author }}</p>
+    <p class="bs-price">Rs.{{ book.price }}</p>
     
     <button
       (click)="

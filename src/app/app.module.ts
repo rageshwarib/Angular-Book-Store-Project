@@ -26,6 +26,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { ActivateGuard } from './activate.guard';
 import { AuthService } from './service/auth.service';
+import { InvalidUrlComponent } from './components/invalid-url/invalid-url.component';
 
 
 
@@ -44,7 +45,8 @@ import { AuthService } from './service/auth.service';
     ForgetPasswordComponent,
     WishlistComponent,
     ResetPasswordComponent,
-    CustomerDetailsComponent
+    CustomerDetailsComponent,
+    InvalidUrlComponent
   ],
   imports: [
     BrowserModule,

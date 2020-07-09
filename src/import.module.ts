@@ -14,6 +14,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSnackBarModule, MatSnackBar} from '@angular/material/snack-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule  ({
     imports :[ MatToolbarModule,
@@ -31,7 +32,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
                 MatBadgeModule,
                 MatDividerModule,
                 MatSnackBarModule,
-                MatPaginatorModule
+                MatPaginatorModule,
+                MatTableModule
             ],
     exports : [ MatToolbarModule,
                 MatIconModule,
@@ -48,8 +50,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
                 MatBadgeModule,
                 MatDividerModule,
                 MatSnackBarModule,
-                MatPaginatorModule
-               // Ng2SearchPipeModule
+                MatPaginatorModule,
+                MatTableModule    
             ]
 })
 

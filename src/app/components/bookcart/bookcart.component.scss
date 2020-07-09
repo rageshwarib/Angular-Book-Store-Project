@@ -1,10 +1,10 @@
-.mat-card {
+.bs-card {
   transition: none !important;
   box-shadow: none !important;
   border: rgb(184, 184, 184) 1px solid;
 }
 
-.image-style {
+.bs-img {
   width: 40%;
   height: 120px;
   margin-left: 30%;
@@ -15,7 +15,7 @@
   font-weight: bold;
   font-size: 18px;
 }
-.title-style {
+.bs-title {
   font-size: 90%;
   line-height: 16px;
   white-space: nowrap;
@@ -24,13 +24,13 @@
   text-overflow: ellipsis;
 }
 
-.author-style {
+.bs-author {
   font-size: 50%;
   margin-left: 2%;
   margin-top: -4%;
   color: grey;
 }
-.price-style {
+.bs-price {
   font-size: 75%;
   margin-left: 2%;
   font-weight: bold;
@@ -55,10 +55,10 @@
 .green {
   background-color: rgb(74, 199, 74);
 }
-blue {
+.blue {
   background-color: rgb(22, 113, 218);
-  width: 100%;
-}	
+  width: 195px;
+}
 .tooltip-wrap {
   background-color: rgb(245, 247, 247);
   margin: -0px -15px -8px -15px;
@@ -67,7 +67,7 @@ blue {
 .tooltip-wrap .tooltip-content {
   display: none;
   position: absolute;
-  bottom: 45px;
+  bottom: 0;
   width: 350px;
   left: -155px;
   right: 0;

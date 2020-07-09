@@ -1,11 +1,11 @@
-<mat-card class="card-style">
+<mat-card class="auth-card">
   <div>
       <mat-card-header>
         <div>
           <img class="header-img-style" src="assets/signupImage.png" />
         </div>
         <div>
-          <mat-card-title class="signup-name">Signup Form</mat-card-title>
+          <mat-card-title class="title-name">Signup Form</mat-card-title>
         </div>
       </mat-card-header>
       <br />
@@ -52,7 +52,7 @@
       <mat-card-actions>
         <div style="margin-left: 1%;">
           <a routerLink="/login">
-            <button mat-button (click)="registerUser()" class="signup-btn">Signup</button></a>
+            <button mat-button (click)="registerUser(); openSnackBar('User Register Successfull !!!','Submit');" class="signup-btn">Signup</button></a>
         </div>
         <p>Already have account
           <a class="link-style" routerLink="/login">Login here</a></p>

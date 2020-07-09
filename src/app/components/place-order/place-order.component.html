@@ -1,9 +1,7 @@
 <div>
   <mat-card class="main-style">
     <div class="succ-img">
-      <img class="success-style"
-        src="assets/success.jpeg"
-      />
+      <img class="success-style" src="assets/success.jpeg" />
     </div>
     <div class="data-style">
       <p>
@@ -12,22 +10,31 @@
         futher communication.
       </p>
     </div>
-    <div class="data-style">
-      <table>
-        <tr>
-          <th>Email us</th>
-          <th>Contact us</th>
-          <th>Address</th>
-        </tr>
-        <tr>
-          <td>admin@bookstore.com</td>
-          <td>+918163475881</td>
-          <td>42,14th Main,5th Cross,Sector 4,opp to BDA complex,near Kumarakom restaurant,HSR Layout,Bangalore 560034</td>
-        </tr>
-      </table>
-    </div>
-    <div class="card-btn" >
-      <a routerLink="/"><button class="btn-col"mat-button>CONTINUE SHOPPING</button></a>
+    <mat-table [dataSource]="dataSource" class="table-style">
+      <!-- P Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell class="specer" *matHeaderCellDef> Email</mat-header-cell>
+        <mat-cell class="specer" *matCellDef="let element"> admin@gmail.com</mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Phone number </mat-header-cell>
+        <mat-cell class="td-wid" *matCellDef="let element"> +123456789</mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <mat-header-cell class="specer" *matHeaderCellDef> Address</mat-header-cell>
+        <mat-cell *matCellDef="let element"> 42,14th Main,5th Cross,Sector 4,opp to BDA complex,near Kumarakom
+          restaurant,HSR Layout,Bangalore 560034</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <div class="card-btn">
+      <a routerLink="/"><button class="btn-col" mat-button>CONTINUE SHOPPING</button></a>
     </div>
   </mat-card>
-  </div>
+</div>

@@ -1,5 +1,11 @@
+<div class="loading-sp" *ngIf="loading">
+  <img src="assets/Reload.gif"/>
+</div>
+<div  *ngIf="loading == false">
 <div class="label-style">
-  <p class="book-name-style">Books <span class="bs-cnt-style">({{ bookArray?.length }} items)</span></p>
+  <p class="book-name-style">
+    Books <span class="bs-cnt-style">({{ bookArray?.length }} items)</span>
+  </p>
   <div class="selector-style">
     <select (change)="sort($event)" class="select-style">
       <option value="" selected disabled hidden>Sort by relevance</option>
@@ -10,16 +16,19 @@
   </div>
 </div>
 
-<div class="books-styles">
+<div  class="bookcard-styles">
   <div class="card-bet-space" *ngFor="let book of bookArray">
     <app-bookcart [book]="book"></app-bookcart>
-    <br/>
+    <br />
   </div>
+
   <div class="pagination">
     <a *ngIf= "current != 0"class ="page-mid" (click)="previousPage()">&lt;</a>
     <div class ="page-mid"*ngFor="let numPage of pages; let i = index">
       <a (click)="pageSelect(i)" [ngClass]="{ active: i == page }">
         {{i + 1}}</a>
     </div>
-    <a *ngIf= "current != ( totalPages - 1 )" class = "page-mid"(click) = "nextPage()">&gt;</a>
+    <a *ngIf= "current != ( totalPages -1)" class ="page-mid"(click)="nextPage()">&gt;</a>
+  </div>
+</div>
 </div>

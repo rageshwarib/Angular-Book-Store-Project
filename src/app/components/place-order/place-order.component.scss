@@ -1,31 +1,22 @@
 .main-style {
   display: flex;
-  width: 1000px;
+  width: 100%;
   flex-direction: column;
   font: 15px Arial, sans-serif;
+}
+@media (max-width: 500px) {
+  .main-style {
+    width: 90%;
+  }
 }
 .data-style {
   display: flex;
   justify-content: space-around;
-  min-width: 100%;
+  min-width: 90%;
   text-align: center;
 }
-.msg-style {
-  display: flex;
-  justify-content: space-around;
-  font-size: 20px;
-}
-table,
-th,
-td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-  width: 60%;
-}
-
 .card-btn {
-  margin-top: 40px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-around;
 }
@@ -34,11 +25,64 @@ td {
   background-color: rgb(45, 125, 206);
 }
 .success-style {
-  width: 30%;
-  height: 40%;
+  width:20%;
+  height: 30%;
 }
 .succ-img {
   display: flex;
   justify-content: space-around;
   text-align: center;
+}
+.specer{
+  margin-left: 5%;
+  margin-right: -5%;;
+}
+@media (max-width: 500px) {
+  .specer{
+    margin-left: -5%;
+    margin-right: 2%;
+  }
+}
+///
+
+.table-style{
+  width: 80%;
+  margin-left: 20%;
+  border: solid 1px rgb(214, 207, 207);
+}
+@media (max-width: 500px) {
+  .table-style{
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+@media (max-width: 768px) {
+  .table-style{
+    width: 90%;
+    margin-left: 0%;
+  }
+}
+@media (min-width: 1024px) {
+  .table-style{
+    width: 60%;
+    margin-left: 18%;
+  }
+}
+.td-wid{
+  margin-left: 2%;
+  margin-bottom: 2%;
+  margin-right: 0%;
+  margin-top: 2%;
+}
+@media (min-width: 768px) {
+  .td-wid{
+    margin-left: 2%;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 1024px) {
+  .td-wid{
+    margin-left: 0%;
+    margin-right: 5%;
+  }
 }

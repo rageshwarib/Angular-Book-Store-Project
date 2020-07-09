@@ -1,28 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 import { ForgotPassword } from 'src/app/model/forgot-password';
-// Error when invalid control is dirty, touched.
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    return !!(control && control.invalid && (control.dirty || control.touched ));
-  }
-}
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
   styleUrls: ['./forget-password.component.scss']
 })
 export class ForgetPasswordComponent implements OnInit {
-  EMAIL_PATTERN = /^[a-zA-Z0-9]{1,}([.\_\+\-]?[a-zA-Z0-9]{1,})?[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]?[a-z]{2})?$/;
+
 public forgotPasswordObj = new ForgotPassword();
-  constructor(public authService: AuthService) { }
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(this.EMAIL_PATTERN),
-  ]);
-  matcher = new MyErrorStateMatcher();
+  constructor(public authService: AuthService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -31,7 +20,11 @@ public forgotPasswordObj = new ForgotPassword();
     this.authService.forgotPassword(email).subscribe(data => {
       console.log(data);
     });
-    console.log('Token is sent on your Mail');
+  }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+       duration: 2000,
+    });
   }
 
 }

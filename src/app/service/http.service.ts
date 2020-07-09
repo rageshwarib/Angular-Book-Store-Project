@@ -25,14 +25,14 @@ header = {headers: new HttpHeaders().set('token', localStorage.getItem('token'))
     return this.http.post(this.baseUrl + url, cartObj, this.header);
   }
 
-  addCustomerDetails(customerObj): any{
-     return this.http.post(this.baseUrl + '/customer-details/add-details', customerObj, this.header);
-  }
-  isCustomerExist(){
-    return this.http.get(this.baseUrl + '/customer-details/isexisted', this.header);
-  }
-  getOrderId(){
-    return this.http.get(this.baseUrl + '/home/cart/order-placed', this.header);
-  }
+  // addCustomerDetails(customerObj): any{
+  //    return this.http.post(this.baseUrl + '/customer-details/add-details', customerObj, this.header);
+  // }
+  // isCustomerExist(){
+  //   return this.http.get(this.baseUrl + '/customer-details/isexisted', this.header);
+  // }
+  // getOrderId(){
+  //   return this.http.get(this.baseUrl + '/home/cart/order-placed', this.header);
+  // }
 
 }

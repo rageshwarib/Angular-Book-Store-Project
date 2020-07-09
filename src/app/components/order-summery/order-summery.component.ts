@@ -16,12 +16,17 @@ export class OrderSummeryComponent implements OnInit {
 
    constructor(public cartOrderSummaryService: CartOrderSummaryService, public sanitizer: DomSanitizer,
                 private snackBar: MatSnackBar) { }
-   ngOnInit(): void {
+   ngOnInit(){
     this.cartOrderSummaryService.orderSummaryBooks.subscribe(data => {
       this.cartBooks = data;
     });
     this. getTotalPrice();
     this.getTotalQuantity();
+  }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
   getImageUrl(book) {
     this.imageUrl = book.image;
@@ -29,11 +34,6 @@ export class OrderSummeryComponent implements OnInit {
       var firstReplacement = this.imageUrl.replace("'", '');
       return this.sanitizer.bypassSecurityTrustUrl(firstReplacement.replace("'", ''));
     }
-  }
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 2000,
-    });
   }
   getTotalPrice() {
     this.cartOrderSummaryService.orderSummaryPrice.subscribe(data => {

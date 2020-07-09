@@ -1,5 +1,5 @@
 <div>
-  <mat-card class="mat-card">
+  <mat-card class="mat-card font">
     <p class="card-style">Order Summary({{ cartBooks?.length }})</p>
     <div *ngFor="let summaryBook of cartBooks">
       <img class="card-img" [src]="getImageUrl( summaryBook )" />  
@@ -10,8 +10,8 @@
       </div>
     </div>
     <p class="price">Total Quantity of Books:{{totalQuantity}}</p>
-      <b class="price">Total Rs.{{totalPrice}}</b>
-      <br/>
+    <b class="price">Total Rs.{{totalPrice}}</b>
+    <br />
     <mat-divider></mat-divider>
     <br />
     <div class="btn-style">

@@ -1,29 +1,49 @@
-<div class="dashboard-style">
-  <mat-toolbar class="toolbar-style">
+<div class="dashboard-style font">
+  <mat-toolbar class="toolbar-style font">
     <mat-toolbar-row>
       <mat-icon class="bs-icon-style">menu_book</mat-icon>
-      <a routerLink="/" class="bs-label"> <p>Bookstore</p></a>
+      <a routerLink="/" routerLinkActive="Active" class="bs-label">
+        <p>Bookstore</p></a
+      >
       <span class="srch-bar-position"></span>
-      <input type="text"class="srch-bar-style"[(ngModel)] = "searchText"  
-      matInput placeholder=" &#xF002; Search..."
-         (click)  = "searchBooks(searchText)"/> 
-      <span class="cart-position" ></span>
-      <span>Cart</span>
-      <a routerLink="/cart">
-        <mat-icon matBadge={{cartCount}} matBadgeSize="small" class="cart-icon-style" >
-        shopping_cart</mat-icon>
+      <input
+        type="text"
+        class="srch-bar-style"
+        [(ngModel)]="searchText"
+        matInput
+        placeholder=" &#xF002; Search..."
+      />
+      <span class="cart-position"></span>
+      <span class="bs-label">Cart</span>
+      <a routerLink="/cart"> 
+        <mat-icon [@rotatedState]='state' (click)="rotate()"
+          matBadge="{{ cartCount }}"
+          matBadgeSize="small"
+          class="cart-icon-style" 
+        >
+          shopping_cart</mat-icon
+        >
       </a>
       <span class="wish-space"></span>
-      <span >WishList</span>
+      <span class="bs-label">WishList</span>
       <a routerLink="/wishlist">
-        <mat-icon matBadge= {{wishCount}} matBadgeSize="small"class="cart-icon-style">
-          favorite_border</mat-icon>
+        <mat-icon [@rotatedState]='stateup' (click)="rotateup()"
+          matBadge="{{ wishCount }}"
+          matBadgeSize="small"
+          class="cart-icon-style"
+        >
+          favorite_border</mat-icon
+        >
       </a>
-      <span class="wish-space"></span>
-      <a routerLink="/login">
-        <mat-icon class="cart-icon-style">
-        account_circle</mat-icon>
-      </a>
+      <div *ngIf="isLogIn == false">
+        <span class="wish-space"></span>
+        <a routerLink="/login" (click)="isLogIn = true">
+          <button class="bs-log" >LogIn</button>
+        </a>
+      </div>
+      <div *ngIf="isLogIn == true">
+        <button class="bs-log" (click)="logOut()">Logout</button>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="navbar-style">
@@ -41,4 +61,4 @@
       </p>
     </div>
   </footer>
-  </div>
+</div>

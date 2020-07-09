@@ -1,19 +1,10 @@
-.toolbar-style {
-  background-color: rgb(141, 19, 19);
-  color: white;
-  font: 15px Arial, sans-serif;
-  height: 20%;
+.srch-bar-position {
+  margin-left: 3%;
 }
-.bs-label{
-  font-size: 120%;
-  color: white;
-  text-decoration:none;
-}
-.bs-icon-style{
-  margin-left: 9.3%;
-}
-.srch-bar-position{
-  flex: 0 1 4%;
+@media (max-width: 500px) {
+  .srch-bar-position {
+    margin-left: 1%;
+  }
 }
 .srch-bar-style {
   background-color: white;
@@ -24,39 +15,9 @@
   font-family: FontAwesome !important;
   width: 38%;
 }
-.cart-icon-style {
-  margin-left: 4px;
-  color: white;
-  border: none;
- // background-color: rgb(141, 19, 19);
-}
-
-.cart-position {
-  flex: 0.6 0 auto;
-}
-.wish-space{
-  margin-left: 1%;
-}
-.navbar-style{
-  display: flex;
-  justify-content: space-between;
-  margin-right: 10%;
-  margin-left: 10%;
-  background-color: white;
-}
-.footer-style{
-  background-color: rgb(59, 12, 12);
-  color: white;
-  height: 50px;
-  font: 15px Arial, sans-serif;
-}
-.bs-footer-style{
-  margin-left: 9%;
-  padding-top: 1px;
-}
-.dashboard-style{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: -webkit-fill-available;
+@media (max-width: 500px) {
+  .srch-bar-style {
+    height: 20px;
+    width: 40%;
+  }
 }

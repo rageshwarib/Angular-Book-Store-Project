@@ -37,9 +37,6 @@ export class BookcartComponent implements OnInit {
 
     });
  }
-  sizeChange() {
-    this.toggle = true;
-  }
   getImageUrl() {
     if (this.imageUrl != null) {
       var firstReplacement = this.imageUrl.replace("'", '');

@@ -1,4 +1,4 @@
-<mat-card class="card-style">
+<mat-card class="auth-card">
   <div>
       <mat-card-header>
         <div>
@@ -7,7 +7,7 @@
         </a>
         </div>
         <div>
-          <mat-card-title class="login-name">Login Form</mat-card-title>
+          <mat-card-title class="title-name">Login Form</mat-card-title>
         </div>
       </mat-card-header>
       <div>
@@ -33,10 +33,9 @@
         <mat-card-actions>
           <div class="button-margin">
             <div class="button-style">
-              <a routerLink="/">
-              <button class="login-btn" mat-button (click)="loginUser()">Login</button>
-            </a>
-            <span>{{ message }}</span>
+              <a routerLink="/" routerLinkActive="Active">
+              <button class="login-btn" mat-button (click)="loginUser(); openSnackBar('User Login Successfull !!!','Submit');">Login</button>
+              </a>
               <a routerLink="/signup">
                 <button class="signup-btn" mat-button>Signup</button>
               </a>
@@ -44,7 +43,7 @@
           </div>
           <br>
           <p style="margin-left: 2%;">forgot 
-            <a class="link-style" routerLink="/password">Password</a></p>
+            <a class="link-style" routerLink="/forget-password">Password</a></p>
         </mat-card-actions>
       </div>
   </div>

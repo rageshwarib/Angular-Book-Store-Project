@@ -15,7 +15,7 @@ export class CustomerDetailsComponent implements OnInit {
   myForm: FormGroup;
   public isButtonVisible = true;
   public isClicked: boolean;
-  customerArray = [];
+
   public customerObj = new CustomerDetails();
 
   MOBILE_PATTERN = /^[1-9]{1}[0-9]{9}$/;
@@ -44,7 +44,7 @@ export class CustomerDetailsComponent implements OnInit {
     });
   }
   addDetails(){
-    this.httpService.addCustomerDetails(this.customerObj).subscribe(data => {
+    this.httpService.postRequest(this.customerObj, '/customer-details/add-details').subscribe(data => {
       console.log(data);
     });
   }

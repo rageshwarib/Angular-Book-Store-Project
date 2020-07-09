@@ -10,26 +10,27 @@ import { SearchKeyService } from 'src/app/service/search-key.service';
 export class GetBookDetailsComponent implements OnInit{
   bookArray = [];
   image: string;
-  page ;
+  page;
   pages: Array<number>;
   totalPages;
-  previous;
-  next;
+  active: boolean;
   current;
-  isDisabled: boolean ;
+  loading = true;
  
   constructor(private httpservice: HttpService, public searchkeyService: SearchKeyService) { }
 
+  
   ngOnInit(): void {
     this.getBooks(0);
     this.searchBook();
   }
+
   pageSelect(i) {
     this.page = i;
     event.preventDefault();
     this.current = i;
     this.getBooks(this.page);
- }
+}
   previousPage() {
     this.page = --this.current;
     this.getBooks(this.page);
@@ -40,39 +41,38 @@ export class GetBookDetailsComponent implements OnInit{
     this.getBooks(this.page);
   }
 
-  public getBooks(pageNumber){
-    this.httpservice.getRequest('/book-store/home' + '?page=' + (pageNumber) + '&size=12')
-    .subscribe(data => {
-      console.log(data);
+  public getBooks(pageNumber) {
+    this.loading = true;
+    this.httpservice.getRequest('/book-store/home' + '?page=' + (pageNumber) + '&size=12'
+    ).subscribe(data => {
       this.bookArray = data.content;
       this.totalPages = data.totalPages;
-      this.pages  = new Array(data.totalPages);
-      });
-    }
-   sort(order){
+      this.pages = new Array(data.totalPages);
+      this.loading = false;
+    });
+  }
+
+  sort(order) {
     switch (order.target.value) {
-        case 'Low' : {
-            this.httpservice.getRequest('/book-store/sort/price-ascending').subscribe(data => {
-             this.bookArray = data.content;
-             console.log(this.bookArray);
-             });
-            break;
-        }
-        case 'High': {
-          this.httpservice.getRequest('/book-store/sort/price-descending').subscribe(data => {
-            this.bookArray = data.content;
-            console.log(this.bookArray);
-           });
-          break;
-        }
-        case 'NewArrival': {
-          this.httpservice.getRequest('/book-store/sort/newest-arrival').subscribe(data => {
-            this.bookArray = data.content;
-            console.log(this.bookArray);
-           });
-          break;
-        }
+      case 'Low': {
+        this.httpservice.getRequest('/book-store/sort/price-ascending').subscribe(data => {
+          this.bookArray = data.content;
+        });
+        break;
       }
+      case 'High': {
+        this.httpservice.getRequest('/book-store/sort/price-descending').subscribe(data => {
+          this.bookArray = data.content;
+        });
+        break;
+      }
+      case 'NewArrival': {
+        this.httpservice.getRequest('/book-store/sort/newest-arrival').subscribe(data => {
+          this.bookArray = data.content;
+        });
+        break;
+      }
+    }
   }
   searchBook(){
     // console.log("Updated search key ", this.searchkeyService.updatedSearchKey);
