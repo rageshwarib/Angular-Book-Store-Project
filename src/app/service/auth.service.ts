@@ -7,13 +7,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
+  loggedInStatus = false;
   header = {headers: new HttpHeaders().set('token', localStorage.getItem('emailToken'))}
  // localStorage.setItem('currentUser', JSON.stringify({ token: emailToekn, name: name }));
  // window.lo
-
-  
-authUrl = environment.authUrl;
+  authUrl = environment.authUrl;
   constructor(private http: HttpClient) { }
+  // setLoggedIn(value: boolean){
+  //   this.loggedInStatus = value;
+  // }
+  // get isLoggedIn(){
+  //   return this.loggedInStatus;
+  // }
 
   registerUser(signUpObj): any{
     return this.http.post(this.authUrl + '/signup', signUpObj, {responseType: 'text'});

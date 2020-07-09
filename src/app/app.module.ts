@@ -26,6 +26,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

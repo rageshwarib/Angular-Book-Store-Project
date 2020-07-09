@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080',
-  authUrl: 'http://localhost:8080/api/auth'
+  baseUrl: 'http://localhost:8081',
+  authUrl: 'http://localhost:8081/api/auth'
 };
 //   wishlistUrl: 'http://localhost:8080/home/wishlist',
 //   authUrl: 'http://localhost:8080/api/auth',

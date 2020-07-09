@@ -10,54 +10,46 @@ import { SearchKeyService } from 'src/app/service/search-key.service';
 export class GetBookDetailsComponent implements OnInit{
   bookArray = [];
   image: string;
- // pageNumber = 0;
   page ;
-  // pages = [];
   pages: Array<number>;
   totalPages;
   previous;
   next;
+  current;
+  isDisabled: boolean ;
  
-
   constructor(private httpservice: HttpService, public searchkeyService: SearchKeyService) { }
 
   ngOnInit(): void {
     this.getBooks(0);
     this.searchBook();
   }
-  pageSelect(i, event){
-    //console.log("I>>>", i);
+  pageSelect(i) {
     this.page = i;
-   // this.previous = --i;
-
-    // this.next = ++i;
     event.preventDefault();
-    console.log('you are in next page', event.srcElement.innerHTML );
-    this.getBooks(event.srcElement.innerHTML);
-
+    this.current = i;
+    this.getBooks(this.page);
+ }
+  previousPage() {
+    this.page = --this.current;
+    this.getBooks(this.page);
   }
- 
-  
+
+  nextPage() {
+    this.page = ++this.current;
+    this.getBooks(this.page);
+  }
+
   public getBooks(pageNumber){
-    this.httpservice.getRequest('/book-store/home' + '?page=' + (pageNumber - 1) + '&size=12'
-    ).subscribe(data => {
+    this.httpservice.getRequest('/book-store/home' + '?page=' + (pageNumber) + '&size=12')
+    .subscribe(data => {
       console.log(data);
-    this.bookArray = data['content'];
-    this.pages  = new Array(data['totalPages']);
-   // this.totalPages = data.totalElements
+      this.bookArray = data.content;
+      this.totalPages = data.totalPages;
+      this.pages  = new Array(data.totalPages);
       });
     }
-  //   next() {
-  //     console.log(this.page);
-  //     ++this.page;
-  //  }
-
-  //  previous() {
-  //    console.log(this.page);
-  //      --this.page;
-  //  }
-
-  sort(order){
+   sort(order){
     switch (order.target.value) {
         case 'Low' : {
             this.httpservice.getRequest('/book-store/sort/price-ascending').subscribe(data => {
@@ -86,11 +78,10 @@ export class GetBookDetailsComponent implements OnInit{
     // console.log("Updated search key ", this.searchkeyService.updatedSearchKey);
     this.searchkeyService.updatedSearchKey.subscribe(listOfBook => {
       console.log("After subscription of service", listOfBook);
-      if(listOfBook.length != 0){
+      if (listOfBook.length != 0){
       this.bookArray = listOfBook;
       }
-      
-    })
+    });
   }
 
 }
