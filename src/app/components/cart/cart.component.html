@@ -1,36 +1,49 @@
-<div>
-  <mat-card class="mat-card">
+
+  <mat-card class="mat-card font">
     <p class="card-style">My Cart ({{ books?.length }})</p>
-    <div *ngFor="let cartBooks of books">
-      <img class="card-img" [src]="getImageUrl(cartBooks)" />
-      <div class="card-data">
-        <p class="title-style">{{ cartBooks.title }}</p>
-        <p class="author-style">by {{ cartBooks.author }}</p>
-        <p class="price-style">Rs.{{ cartBooks.price }}</p>
-        <span><button (click)="addItem(cartBooks.id)">+</button></span>
-        <span class="btn-icon">{{ cartBooks.bookQuantity }}</span>
-        <span><button (click)="removeItem(cartBooks.id)">-</button></span>
-        <button class="rem-btn" mat-button (click)="removeFromCart(cartBooks); openSnackBar('Book Remove From Cart Successfull !!!','Remove')">
-          Remove
-        </button>
+    <div *ngIf="!books || books?.length === 0">
+      <p class="bs-msg">Youre Cart is Empty...!!!</p>
+    </div>
+    <div *ngIf="books || books?.length > 0">
+      <div *ngFor="let cartBooks of books">
+        <img class="card-img" [src]="getImageUrl(cartBooks)" />
+        <div class="card-data">
+          <p class="title-style">{{ cartBooks.title }}</p>
+          <p class="author-style">by {{ cartBooks.author }}</p>
+          <p class="price-style">Rs.{{ cartBooks.price }}</p>
+          <span><button (click)="addItem(cartBooks.id)">+</button></span>
+          <span class="btn-icon">{{ cartBooks.bookQuantity }}</span>
+          <span><button (click)="removeItem(cartBooks.id)">-</button></span>
+          <button
+            class="rem-btn"
+            mat-button
+            (click)="
+              removeFromCart(cartBooks);
+              openSnackBar('Book Remove From Cart Successfull !!!', 'Remove')"
+          >
+            Remove
+          </button>
+        </div>
+        <mat-divider></mat-divider>
       </div>
-      <mat-divider></mat-divider>
     </div>
     <br />
     <button
       class="card-btn"
       *ngIf="this.isButtonVisible"
-      mat-button 
-      (click)="openSnackBar('Place Order Successfull !!!','Submit');
-       isClicked = true; this.isButtonVisible = false"  
-       (click) ="isCustomerExist()">
+      mat-button
+      (click)="
+        openSnackBar('Place Order Successfull !!!', 'Submit');
+        this.isButtonVisible = false"
+      (click)="isCustomerExist()"
+    >
       PLACE ORDER
     </button>
   </mat-card>
-</div>
 <br />
-
-<div *ngIf= "isExist == false" >
-<app-customer-details></app-customer-details>
+<div *ngIf="isExist == false">
+  <app-customer-details></app-customer-details>
 </div>
-<app-order-summery ></app-order-summery> 
+
+<app-order-summery></app-order-summery>
+

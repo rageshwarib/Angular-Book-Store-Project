@@ -9,15 +9,16 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ActivateGuard } from './activate.guard';
 
 
 const routes: Routes = [
   {
     path: '', component: DashboardComponent,
     children: [{path: '', component: GetBookDetailsComponent},
-    {path: 'cart', component: CartComponent},
-    {path: 'success', component: PlaceOrderComponent},
-     {path: 'wishlist', component: WishlistComponent}
+    {path: 'cart', component: CartComponent, canActivate: [ActivateGuard]},
+    {path: 'success', component: PlaceOrderComponent, canActivate: [ActivateGuard]},
+     {path: 'wishlist', component: WishlistComponent, canActivate: [ActivateGuard]}
     ]
   },
   {

@@ -9,11 +9,14 @@
         <p class="price-style">Rs.{{ summaryBook.price }}</p>  
       </div>
     </div>
-    <br />
+    <p class="price">Total Quantity of Books:{{totalQuantity}}</p>
+      <b class="price">Total Rs.{{totalPrice}}</b>
+      <br/>
     <mat-divider></mat-divider>
     <br />
     <div class="btn-style">
-      <a routerLink="/success"><button class="card-btn" mat-button>CHECKOUT</button></a>
+      <a routerLink="/success"><button class="card-btn" (click)="openSnackBar('Your Order Successfull !!!', 'Submit');
+        " mat-button>CHECKOUT</button></a>
     </div>
   </mat-card>
 </div>

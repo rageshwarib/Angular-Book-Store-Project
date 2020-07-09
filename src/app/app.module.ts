@@ -24,6 +24,8 @@ import { RouterModule } from '@angular/router';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { ActivateGuard } from './activate.guard';
+import { AuthService } from './service/auth.service';
 
 
 
@@ -53,7 +55,7 @@ import { CustomerDetailsComponent } from './components/customer-details/customer
     FormsModule,
     NgxPaginationModule
   ],
-  providers: [BookcartComponent],
+  providers: [BookcartComponent, ActivateGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
